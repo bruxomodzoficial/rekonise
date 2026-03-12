@@ -1,26 +1,334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Perguntas e respostas - CHATGPT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISAC MODS TV - Desbloqueie Conteúdo Exclusivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 50px 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff0000, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #b0b0b0;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-youtube {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-youtube:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #1da851);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .icon {
+            font-size: 18px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #b0b0b0;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00ff88, #00cc66);
+            border-radius: 20px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .unlock-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff6b6b;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .unlock-btn:disabled {
+            opacity: 0.5;
+        }
+
+        .unlock-btn.active {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border-color: #ff0000;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+        }
+
+        .unlock-btn.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
+        }
+
+        .checkmark {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 255, 136, 0.2);
+            border: 2px solid #00ff88;
+            border-radius: 50%;
+            margin-left: 8px;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: center;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .checkmark.completed {
+            background: #00ff88;
+            color: #0f0f0f;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 25px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .btn {
+                padding: 14px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="box-questions">
-    <div class="header">
-      <p>Perguntas e respostas - CHATGPT</p>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🎬 ISAC MODS TV</div>
+            <p class="subtitle">Complete as ações para desbloquear conteúdo exclusivo</p>
+        </div>
+
+        <div class="actions">
+            <a class="btn btn-youtube" href="https://www.youtube.com/@isacmodstv" target="_blank" onclick="completeAction(0, event)">
+                <span class="icon">▶️</span>
+                <span>Inscrever no Canal</span>
+                <span class="checkmark" id="check0"></span>
+            </a>
+
+            <a class="btn btn-youtube" href="https://youtu.be/aNtOHQwSIM8?si=lLvb3Wp7VGccN81b" target="_blank" onclick="completeAction(1, event)">
+                <span class="icon">👍</span>
+                <span>Curtir o Vídeo</span>
+                <span class="checkmark" id="check1"></span>
+            </a>
+
+            <a class="btn btn-youtube" href="https://www.youtube.com/@bruxomodzofc" target="_blank" onclick="completeAction(2, event)">
+                <span class="icon">⭐</span>
+                <span>Seguir Bruxo Modz</span>
+                <span class="checkmark" id="check2"></span>
+            </a>
+
+            <a class="btn btn-whatsapp" href="https://chat.whatsapp.com/Bye9CWnyog5CggS0y6RxXA?mode=gi_t" target="_blank" onclick="completeAction(3, event)">
+                <span class="icon">💬</span>
+                <span>Entrar no Grupo WhatsApp</span>
+                <span class="checkmark" id="check3"></span>
+            </a>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-label">
+                <span>Progresso</span>
+                <span id="progress-text">0/4</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <button class="unlock-btn" id="unlock-btn" onclick="unlockContent()" disabled>
+            🔓 Desbloquear Link Exclusivo
+        </button>
     </div>
-    <p id="status"></p>
-    <div id="history">
-      <!-- Aqui vai o chat gerado conforme as respostas -->
-    </div>
-    <div class="footer">
-      <input type="text" id="message-input" placeholder="Pergunte aqui...">
-      <button class="btn-submit" id="btn-submit" onclick="sendMessage()">Enviar</button>
-    </div>
-  </div>
+
+    <script>
+        let completedActions = new Set();
+
+        function completeAction(index, event) {
+            completedActions.add(index);
+            updateUI();
+        }
+
+        function updateUI() {
+            const total = completedActions.size;
+            const percentage = (total / 4) * 100;
+
+            // Atualizar barra de progresso
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('progress-text').textContent = total + '/4';
+
+            // Atualizar checkmarks
+            for (let i = 0; i < 4; i++) {
+                const checkmark = document.getElementById('check' + i);
+                if (completedActions.has(i)) {
+                    checkmark.textContent = '✓';
+                    checkmark.classList.add('completed');
+                } else {
+                    checkmark.textContent = '';
+                    checkmark.classList.remove('completed');
+                }
+            }
+
+            // Ativar botão de desbloqueio
+            const unlockBtn = document.getElementById('unlock-btn');
+            if (total >= 4) {
+                unlockBtn.classList.add('active');
+                unlockBtn.disabled = false;
+            } else {
+                unlockBtn.classList.remove('active');
+                unlockBtn.disabled = true;
+            }
+        }
+
+        function unlockContent() {
+            if (completedActions.size >= 4) {
+                window.location.href = "https://bruxomodzoficial.github.io/site-downloads/";
+            }
+        }
+
+        // Inicializar UI
+        updateUI();
+    </script>
 </body>
-<script src="main.js"></script>
 </html>
