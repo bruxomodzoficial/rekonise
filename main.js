@@ -1,5 +1,5 @@
 // Chave de API do OpenAI
-const apiKey = 'sua_api_key'
+const apiKey = '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'
 
 function sendMessage(){
     var message = document.getElementById('message-input')
