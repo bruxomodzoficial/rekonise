@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISAC MODS TV</title>
+
+<style>
+
+body{
+background:#0e0e0e;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.box{
+background:#1c1c1c;
+padding:30px;
+border-radius:15px;
+width:320px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.btn{
+display:block;
+background:#ff0000;
+color:white;
+text-decoration:none;
+padding:14px;
+border-radius:10px;
+margin-top:15px;
+font-weight:bold;
+}
+
+.btn.whatsapp{
+background:#25D366;
+}
+
+.progress{
+margin-top:20px;
+background:#333;
+border-radius:20px;
+height:10px;
+overflow:hidden;
+}
+
+.bar{
+height:10px;
+width:0%;
+background:#00ff88;
+transition:0.4s;
+}
+
+.unlock{
+margin-top:20px;
+padding:14px;
+border-radius:10px;
+background:#555;
+color:white;
+border:none;
+width:100%;
+font-weight:bold;
+cursor:not-allowed;
+}
+
+.unlock.active{
+background:#00cc66;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>ISAC MODS TV</h2>
+<p>Complete as ações para desbloquear</p>
+
+<a class="btn" onclick="action1()" target="_blank"
+href="https://www.youtube.com/@isacmodstv">
+Inscrever no canal
+</a>
+
+<a class="btn" onclick="action2()" target="_blank"
+href="https://youtu.be/0kGFIC1vDyA?si=1z60uvx9c5jWddeX">
+Curtir o vídeo
+</a>
+
+<a class="btn" onclick="action3()" target="_blank"
+href="https://www.youtube.com/@bruxomodzofc">
+Seguir Bruxo Modz
+</a>
+
+<a class="btn whatsapp" onclick="action4()" target="_blank"
+href="https://chat.whatsapp.com/Bye9CWnyog5CggS0y6RxXA?mode=gi_t">
+Entrar no Grupo WhatsApp
+</a>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<p id="status">0/4 concluído</p>
+
+<button id="unlock" class="unlock" onclick="go()">Desbloquear Link</button>
+
+</div>
+
+<script>
+
+let done = 0
+
+function update(){
+document.getElementById("status").innerText = done + "/4 concluído"
+document.getElementById("bar").style.width = (done*25)+"%"
+
+if(done >=4){
+document.getElementById("unlock").classList.add("active")
+document.getElementById("unlock").style.cursor="pointer"
+}
+}
+
+function action1(){ done++; update(); }
+function action2(){ done++; update(); }
+function action3(){ done++; update(); }
+function action4(){ done++; update(); }
+
+function go(){
+if(done>=4){
+window.location.href="https://bruxomodzoficial.github.io/site-downloads/"
+}
+}
+
+</script>
+
+</body>
+</html>
